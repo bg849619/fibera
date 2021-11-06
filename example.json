@@ -4,7 +4,7 @@
             "id": 0,
             "type": "cable",
             "spec": 0,
-            "path": {},
+            "path": [],
             "endpoints": [0, 1],
             "placement": "arial",
             "name": "cable1"
