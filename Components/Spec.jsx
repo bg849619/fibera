@@ -8,9 +8,13 @@ class Spec extends Component {
         return (
             <div>
                 <table>
+                    <thead>
                     <tr><th>Name</th><th>ID</th></tr>
-                    {this.props.cableSpecs.map(spec => (
+                    </thead>
+                    <tbody>
+                    {this.props.cableSpec.map(spec => (
                     <tr><td>{spec.name}</td><td>{spec.id}</td></tr>))}
+                    </tbody>
                 </table>
             </div>
         )

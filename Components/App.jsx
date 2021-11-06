@@ -29,14 +29,15 @@ class App extends Component {
             <HashRouter>
             <div>
                 <input type="file" onChange={this.handleFile} />
+                <Link to="/">Home</Link>
                 <Link to="/network">Network</Link>
                 <Link to="/specs">Specs</Link>
                 <Switch>
                     <Route path="/network">
-                        <Network network={this.data?this.data.network:[]} />
+                        <Network network={this.state.data?this.state.data.network:[]} />
                     </Route>
                     <Route path="/specs">
-                        <Spec cableSpecs={this.data?this.data.cableSpecs:[]} />
+                        <Spec cableSpec={this.state.data?this.state.data.cableSpec:[]} />
                     </Route>
                     <Route path="/">
                         <Test value={this.state.data}/>
