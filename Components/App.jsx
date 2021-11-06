@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import {hot} from 'react-hot-loader/root';
 import { Switch , HashRouter, Route, Link} from 'react-router-dom';
+
+import Network from './Network.jsx';
+import Spec from './Spec.jsx';
 
 class App extends Component {
     constructor(props) {
@@ -27,10 +29,14 @@ class App extends Component {
             <HashRouter>
             <div>
                 <input type="file" onChange={this.handleFile} />
-                <Link to="/test" >Test</Link>
+                <Link to="/network">Network</Link>
+                <Link to="/specs">Specs</Link>
                 <Switch>
-                    <Route path="/test">
-                        <Test value="hello" />
+                    <Route path="/network">
+                        <Network network={this.data?this.data.network:[]} />
+                    </Route>
+                    <Route path="/specs">
+                        <Spec cableSpecs={this.data?this.data.cableSpecs:[]} />
                     </Route>
                     <Route path="/">
                         <Test value={this.state.data}/>
