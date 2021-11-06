@@ -16,6 +16,15 @@ class Spec extends Component {
                     <tr><td>{spec.name}</td><td>{spec.id}</td></tr>))}
                     </tbody>
                 </table>
+                <table>
+                    <thead>
+                    <tr><th>Name</th><th>ID</th><th>#Outputs</th></tr>
+                    </thead>
+                    <tbody>
+                    {this.props.splitterSpec.map(spec => (
+                    <tr><td>{spec.name}</td><td>{spec.id}</td><td>{spec.outputs.length}</td></tr>))}
+                    </tbody>
+                </table>
             </div>
         )
     }
