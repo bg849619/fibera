@@ -15,3 +15,5 @@ class NetworkComponent {
         });
     }
 }
+
+export default NetworkComponent;
