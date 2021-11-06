@@ -1,0 +1,45 @@
+{
+    "network": [
+        {
+            "id": 0,
+            "type": "cable",
+            "spec": 0,
+            "path": {},
+            "endpoints": [0, 1],
+            "placement": "arial",
+            "name": "cable1"
+        },
+        {
+            "id": 1,
+            "type": "junction",
+            "location": {},
+            "placement": "arial",
+            "map": [
+                [{"component": 0,"fiber": [0,0]}, {"component": 0, "fiber": [0, 1]}]
+            ],
+            "name": "junction1"
+        },
+        {
+            "id": 2,
+            "type": "splitter",
+            "spec": 0,
+            "junction": 0
+        }
+    ],
+    "cableSpec": [
+        {
+            "id": 0,
+            "name": "12ct sm",
+            "groups": [{"name": "green", "color": "00FF00"}],
+            "fibers": [{"name": "green", "color": "00FF00"}],
+            "loss": [{"wavelength": 1310, "value": -0.03}]
+        }
+    ],
+    "splitterSpec": [
+        {
+            "id": 0,
+            "name": "1x2 plc splitter",
+            "outputs": [{"loss": [{"wavelength": 1310, "value": -2}]}, {"loss": [{"wavelength": 1310, "value": -2}]}]
+        }
+    ]
+}
