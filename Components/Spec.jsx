@@ -28,7 +28,7 @@ class Spec extends Component {
                     </thead>
                     <tbody>
                     {this.props.cableSpec.filter(spec => (spec.name.includes(this.state.search) || (spec.name && spec.name.includes(this.state.search)) || spec.id.toString().includes(this.state.search))).map(spec => (
-                    <tr><td>{spec.name}</td><td>{spec.id}</td><td></td><td><button onClick={() => {this.context.deleteCableSpec(spec.id)}}>D</button></td></tr>))}
+                    <tr><td>{spec.name}</td><td>{spec.id}</td></tr>))}
                     </tbody>
                 </table>
                 <table>
@@ -37,7 +37,7 @@ class Spec extends Component {
                     </thead>
                     <tbody>
                     {this.props.splitterSpec.filter(spec => (spec.name.includes(this.state.search) || spec.id.toString().includes(this.state.search))).map(spec => (
-                    <tr><td>{spec.name}</td><td>{spec.id}</td><td>{spec.outputs.length}</td><td></td><td><button onClick={() => {this.context.deleteSplitterSpec(spec.id)}}>D</button></td></tr>))}
+                    <tr><td>{spec.name}</td><td>{spec.id}</td><td>{spec.outputs.length}</td></tr>))}
                     </tbody>
                 </table>
             </div>
