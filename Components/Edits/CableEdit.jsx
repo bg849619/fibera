@@ -15,6 +15,10 @@ class CableEdit extends component{
         });
     }
 
+    handleSubmit(){
+        this.context.setComponent(this.state.id, this.state);
+    }
+
     render(){
         return(
             <div>
@@ -26,7 +30,7 @@ class CableEdit extends component{
                     <option value="pedestal">Pedestal</option>
                     <option value="ground">Ground</option>
                 </select>
-                <button onClick={this.props.onSubmit}>Save</button>
+                <button onClick={this.handleSubmit.bind(this)}>Save</button>
             </div>
      )
     }
