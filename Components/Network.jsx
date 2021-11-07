@@ -23,7 +23,7 @@ class Network extends Component {
                 <Route path="/network/list">
                     <NetworkList networkComponents={this.props.network} />
                 </Route>
-                <Route path="/edit/:id">
+                <Route path="/network/edit/:id">
                     <ComponentEdit />
                 </Route>
                 <Route path="/network">

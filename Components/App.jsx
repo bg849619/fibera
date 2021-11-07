@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Switch , HashRouter, Route, Link} from 'react-router-dom';
 
-import {GlobalContext} from './GlobalContext.js';
+import {GlobalContext} from './GlobalContext';
 import Network from './Network.jsx';
 import Spec from './Spec.jsx';
 
@@ -12,13 +12,13 @@ class App extends Component {
             data: null,
             filename: null,
             changed: false,
-            getComponent = (id) => {
+            getComponent: (id) => {
                 for(let i in this.state.data.network)
                     if(this.state.data.network[i].id == id)
                         return this.state.data.network[i];
                 return null;
             },
-            setComponent = (id, value) => {
+            setComponent: (id, value) => {
                 for(let i in this.state.data.network)
                     if(this.state.data.network[i].id == id){
                         let network = this.state.data.network;
@@ -29,12 +29,12 @@ class App extends Component {
                         }));
                     }
             },
-            getCableSpec = (id) => {
+            getCableSpec: (id) => {
                 for(let i in this.state.data.cableSpec)
                     if(this.state.data.cableSpec[i].id == id)
                         return this.state.data.cableSpec[i];
             },
-            setCableSpec = (id, value) => {
+            setCableSpec: (id, value) => {
                 for(let i in this.state.data.cableSpec)
                     if(this.state.data.cableSpec[i].id == id){
                         let cableSpec = this.state.data.cableSpec;
@@ -45,12 +45,12 @@ class App extends Component {
                         }));
                     }
             },
-            getSplitterSpec = (id) => {
+            getSplitterSpec: (id) => {
                 for(let i in this.state.data.splitterSpec)
                     if(this.state.data.splitterSpec[i].id == id)
                         return this.state.data.splitterSpec[i];
             },
-            setSplitterSpec = (id, value) => {
+            setSplitterSpec: (id, value) => {
                 for(let i in this.state.data.splitterSpec)
                     if(this.state.data.splitterSpec[i].id == id){
                         let splitterSpec = this.state.data.splitterSpec;
@@ -61,7 +61,7 @@ class App extends Component {
                         }));
                     }
             },
-            saveData = () => {
+            saveData: () => {
                 let element = document.createElement('a');
                 element.setAttribute('href', 'data:text/plain;charset=utf-8,'+encodeURIComponent(JSON.stringify(this.state.data)));
                 element.setAttribute('download', this.state.filename || "network.fibera");
@@ -104,7 +104,7 @@ class App extends Component {
                         <Spec cableSpec={this.state.data?this.state.data.cableSpec:[]} splitterSpec={this.state.data?this.state.data.splitterSpec:[]} />
                     </Route>
                     <Route path="/">
-                        <Home loadFile={} saveFile={}/>
+                        <Home/>
                     </Route>
                 </Switch>
             </div>
