@@ -16,13 +16,14 @@ class Spec extends Component {
     render(){
         return (
             <div>
+                <button>+</button>
                 <input type="text" value={this.state.search} onChange={this.handleChange.bind(this)}/>
                 <table>
                     <thead>
                     <tr><th>Name</th><th>ID</th></tr>
                     </thead>
                     <tbody>
-                    {this.props.cableSpec.filter(spec => (spec.name.includes(this.state.search) || (spec.name && spec.name.includes(this.state.search)))).map(spec => (
+                    {this.props.cableSpec.filter(spec => (spec.name.includes(this.state.search) || (spec.name && spec.name.includes(this.state.search)) || spec.id.toString().includes(this.state.search))).map(spec => (
                     <tr><td>{spec.name}</td><td>{spec.id}</td></tr>))}
                     </tbody>
                 </table>
@@ -31,7 +32,7 @@ class Spec extends Component {
                     <tr><th>Name</th><th>ID</th><th>#Outputs</th></tr>
                     </thead>
                     <tbody>
-                    {this.props.splitterSpec.map(spec => (
+                    {this.props.splitterSpec.filter(spec => (spec.name.includes(this.state.search) || (spec.name && spec.name.includes(this.state.search)) || spec.id.toString().includes(this.state.search))).map(spec => (
                     <tr><td>{spec.name}</td><td>{spec.id}</td><td>{spec.outputs.length}</td></tr>))}
                     </tbody>
                 </table>
