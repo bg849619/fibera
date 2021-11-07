@@ -12,6 +12,9 @@ class App extends Component {
             data: null,
             filename: null,
             changed: false,
+            getAllData: () => {
+                return this.state.data;
+            },
             getComponent: (id) => {
                 for(let i in this.state.data.network)
                     if(this.state.data.network[i].id == id)
@@ -27,39 +30,65 @@ class App extends Component {
                             data: {...state.data, network},
                             changed: true
                         }));
+                        return;
                     }
+            },
+            addComponent: (value) => {
+                let id = this.findNewId('network');
+                let network = this.state.data.network;
+                network.push({...value, id});
+                this.setState(state => ({
+                    data: {...state.data, network}
+                }));
+            },
+            deleteComponent: (id) => {
+                let network = this.state.data.network;
+                for(let i = 0; i < network.length; i++){
+                    if(network[i].id == id){
+                        network.splice(i, 1);
+                        i++;
+                    }
+                    // Delete any junction maps to this component.
+                    else if(network[i].type == 'junction'){
+                        for(let j = 0; j < network[i].map.length; j++){
+                            if(network[i].map[j][0].component == id || network[i].map[j][1].component == id){
+                                network[i].map.splice(j, 1);
+                                j--;
+                            }
+                        }
+                    }
+                    // Delete splitters that might rely on this component.
+                    else if(network[i].type == 'splitter' && network[i].junction == id){
+                        network.splice(i, 1)
+                        i++;
+                    }
+                }
             },
             getCableSpec: (id) => {
                 for(let i in this.state.data.cableSpec)
                     if(this.state.data.cableSpec[i].id == id)
                         return this.state.data.cableSpec[i];
             },
-            setCableSpec: (id, value) => {
-                for(let i in this.state.data.cableSpec)
-                    if(this.state.data.cableSpec[i].id == id){
-                        let cableSpec = this.state.data.cableSpec;
-                        cableSpec[i] = value;
-                        this.setState(state => ({
-                            data: {...state.data, cableSpec},
-                            changed: true
-                        }));
-                    }
+            addCableSpec: (value) => {
+                let id = this.findNewId('cableSpec');
+                let cableSpec = this.state.data.cableSpec;
+                cableSpec.push({...value, id});
+                this.setState(state => ({
+                    data: {...state.data, cableSpec}
+                }));
             },
             getSplitterSpec: (id) => {
                 for(let i in this.state.data.splitterSpec)
                     if(this.state.data.splitterSpec[i].id == id)
                         return this.state.data.splitterSpec[i];
             },
-            setSplitterSpec: (id, value) => {
-                for(let i in this.state.data.splitterSpec)
-                    if(this.state.data.splitterSpec[i].id == id){
-                        let splitterSpec = this.state.data.splitterSpec;
-                        splitterSpec[i] = value;
-                        this.setState(state => ({
-                            data: {...state.data, splitterSpec},
-                            changed: true
-                        }));
-                    }
+            addSplitterSpec: (value) => {
+                let id = this.findNewId('splitterSpec');
+                let splitterSpec = this.state.data.splitterSpec;
+                splitterSpec.push({...value, id});
+                this.setState(state => ({
+                    data: {...state.data, splitterSpec}
+                }));
             },
             saveData: () => {
                 let element = document.createElement('a');
@@ -69,8 +98,18 @@ class App extends Component {
                 document.body.appendChild(element);
                 element.click();
                 document.body.removeChild(element);
+                this.setState({changed: false})
             }
         }
+    }
+
+    findNewId = (dataIndex) => {
+        let highId = 0;
+        for(let i in this.state.data[dataIndex])
+            if(this.state.data[dataIndex][i] > highId)
+                highId = this.state.data[dataIndex][i].id;
+
+        return highId + 1;
     }
 
     handleFile = (event) => {

@@ -30,7 +30,7 @@
             "id": 2,
             "type": "splitter",
             "spec": 0,
-            "junction": 0
+            "junction": 1
         },
         {
             "id":3,

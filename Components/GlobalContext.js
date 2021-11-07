@@ -1,11 +1,13 @@
 import React from 'react';
 
 export const GlobalContext = React.createContext({
+    getAllData: () => {},
     getComponent: () => {},
     setComponent: () => {},
+    deleteComponent: () => {},
     getCableSpec: () => {},
-    setCableSpec: () => {},
+    addCableSpec: () => {},
     getSplitterSpec: () => {},
-    setSplitterSpec: () => {},
+    addSplitterSpec: () => {},
     saveData: () => {},
 });
