@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
+import {GlobalContext} from "../GlobalContext.js"
 
 class JunctionEdit extends Component {
 
+    static contextType = GlobalContext;
+    
     constructor(props){
         super(props);
         this.state=this.props.value;
