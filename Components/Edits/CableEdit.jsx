@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { render } from 'react-dom';
+import{GlobalContext} from '../GlobalContext.js';
 class CableEdit extends component{
+    static contextType = GlobalContext;
     constructor(props){
         super(props);
         this.state = this.props.value;
@@ -11,6 +13,10 @@ class CableEdit extends component{
         this.setState({
             [e.target.name]: e.target.value
         });
+    }
+
+    handleSubmit(){
+        this.context.setComponent(this.state.id, this.state);
     }
 
     render(){
@@ -24,7 +30,7 @@ class CableEdit extends component{
                     <option value="pedestal">Pedestal</option>
                     <option value="ground">Ground</option>
                 </select>
-                <button onClick={this.props.onSubmit}>Save</button>
+                <button onClick={this.handleSubmit.bind(this)}>Save</button>
             </div>
      )
     }
