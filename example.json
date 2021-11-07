@@ -13,14 +13,14 @@
                 {"lat": 39.33185634274213, "lng": -83.40897022618257}
             ],
             "endpoints": [0, 1],
-            "placement": "arial",
+            "placement": "aerial",
             "name": "cable1"
         },
         {
             "id": 1,
             "type": "junction",
-            "location": {},
-            "placement": "arial",
+            "location": {"lat": 39.34539750423859, "lng": -83.39024659700581},
+            "placement": "aerial",
             "map": [
                 [{"component": 0,"fiber": [0,0]}, {"component": 0, "fiber": [0, 1]}]
             ],
@@ -31,6 +31,15 @@
             "type": "splitter",
             "spec": 0,
             "junction": 0
+        },
+        {
+            "id":3,
+            "type":"junction",
+            "location": {"lat": 39.33181358596587, "lng": -83.40901546014035},
+            "placement":"aerial",
+            "map": [
+                [{"component": 0,"fiber": [0,0]}, {"component": 0, "fiber": [0, 1]}]
+            ]
         }
     ],
     "cableSpec": [
