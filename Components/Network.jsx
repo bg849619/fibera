@@ -21,7 +21,7 @@ class Network extends Component {
                 <Route path="/network/list">
                     <NetworkList networkComponents={this.props.network} />
                 </Route>
-                <Route path="network/">
+                <Route path="/network">
                     <NetworkMap networkComponents={this.props.network} />
                 </Route>
             </Switch>
