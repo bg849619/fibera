@@ -23,7 +23,7 @@ class NetworkList extends Component{
                 </thead>
                 <tbody>
                 {this.props.networkComponents.filter(component => (component.id.toString().includes(this.state.search) || (component.name && component.name.includes(this.state.search)))).map(networkComponent => (
-                <tr><td>{networkComponent.id}</td><td>{networkComponent.type}</td><td>{networkComponent.name}</td><td>{networkComponent.placement}</td><td><Link to=""><button>e</button></Link><Link to=""><button>d</button></Link></td></tr>))}
+                <tr><td>{networkComponent.id}</td><td>{networkComponent.type}</td><td>{networkComponent.name}</td><td>{networkComponent.placement}</td><td><Link to={'/Network/Edit/' + networkComponent.id}><button>e</button></Link><Link to=""><button>d</button></Link></td></tr>))}
                 </tbody>
                 </table> 
             </div>
