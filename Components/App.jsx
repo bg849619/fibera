@@ -37,7 +37,7 @@ class App extends Component {
                         <Network network={this.state.data?this.state.data.network:[]} />
                     </Route>
                     <Route path="/specs">
-                        <Spec cableSpec={this.state.data?this.state.data.cableSpec:[]} />
+                        <Spec cableSpec={this.state.data?this.state.data.cableSpec:[]} splitterSpec={this.state.data?this.state.data.splitterSpec:[]} />
                     </Route>
                     <Route path="/">
                         <Test value={this.state.data}/>
