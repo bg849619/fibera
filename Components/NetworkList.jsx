@@ -4,11 +4,13 @@ class NetworkList extends Component{
         super(props);
         this.state = {search:""};
     }
+    
     handleChange(e){
         this.setState({
             search:e.target.value
         })
     }
+
     render(){
         return(
             <div>
