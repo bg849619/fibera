@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { render } from 'react-dom';
 import{GlobalContext} from '../GlobalContext.js';
-class CableEdit extends component{
+class CableEdit extends Component{
     static contextType = GlobalContext;
     constructor(props){
         super(props);
