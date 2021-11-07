@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import {GoogleMap, InfoWindow, LoadScript, Polyline, Marker} from '@react-google-maps/api';
 
 import ComponentMapPopup from './ComponentMapPopup';
+import {GlobalContext} from './GlobalContext.js';
 
 class NetworkMap extends Component {
+    static contextType = GlobalContext;
     constructor(props) {
         super(props);
 
@@ -60,7 +62,7 @@ class NetworkMap extends Component {
     }
 
     endEdit() {
-        // Need to write to data using context provider.
+        this.context.setComponent(this.state.editingComponent.id, this.state.editingComponent);
         this.setState({
             editingComponent: null
         });
