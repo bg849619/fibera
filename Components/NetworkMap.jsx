@@ -50,7 +50,7 @@ class NetworkMap extends Component {
 
     handleJunctionEdit(e) {
         this.setState(state => ({
-            editingComponent: {...state.editingComponent, position: {lat: e.latLng.lat(), lng: e.latLng.lng()}}
+            editingComponent: {...state.editingComponent, location: {lat: e.latLng.lat(), lng: e.latLng.lng()}}
         }));
     }
 
