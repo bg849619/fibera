@@ -25,7 +25,7 @@ class Spec extends Component {
                     </thead>
                     <tbody>
                     {this.props.cableSpec.filter(spec => (spec.name.includes(this.state.search) || (spec.name && spec.name.includes(this.state.search)) || spec.id.toString().includes(this.state.search))).map(spec => (
-                    <tr><td>{spec.name}</td><td>{spec.id}</td><td><Link to=""><button>E</button></Link></td><td><Link to=""><button>D</button></Link></td></tr>))}
+                    <tr><td>{spec.name}</td><td>{spec.id}</td><td><Link to={"/cablespec/edit/"+spec.id}><button>E</button></Link></td><td><Link to=""><button>D</button></Link></td></tr>))}
                     </tbody>
                 </table>
                 <table>
@@ -34,7 +34,7 @@ class Spec extends Component {
                     </thead>
                     <tbody>
                     {this.props.splitterSpec.filter(spec => (spec.name.includes(this.state.search) || spec.id.toString().includes(this.state.search))).map(spec => (
-                    <tr><td>{spec.name}</td><td>{spec.id}</td><td>{spec.outputs.length}</td><td><Link to=""><button>E</button></Link></td><td><Link to=""><button>D</button></Link></td></tr>))}
+                    <tr><td>{spec.name}</td><td>{spec.id}</td><td>{spec.outputs.length}</td><td><Link to={"/splitterspec/edit/"+spec.id}><button>E</button></Link></td><td><Link to=""><button>D</button></Link></td></tr>))}
                     </tbody>
                 </table>
             </div>
