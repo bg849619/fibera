@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import{Link} from "react-router-dom";
+import{GlobalContext} from '../GlobalContext.js';
 class NetworkList extends Component{
+    static contextType = GlobalContext;
     constructor(props){
         super(props);
         this.state = {search:""};
@@ -23,7 +25,7 @@ class NetworkList extends Component{
                 </thead>
                 <tbody>
                 {this.props.networkComponents.filter(component => (component.id.toString().includes(this.state.search) || (component.name && component.name.includes(this.state.search)))).map(networkComponent => (
-                <tr><td>{networkComponent.id}</td><td>{networkComponent.type}</td><td>{networkComponent.name}</td><td>{networkComponent.placement}</td><td><Link to={'/Network/Edit/' + networkComponent.id}><button>e</button></Link><Link to=""><button>d</button></Link></td></tr>))}
+                <tr><td>{networkComponent.id}</td><td>{networkComponent.type}</td><td>{networkComponent.name}</td><td>{networkComponent.placement}</td><td><Link to={'/Network/Edit/' + networkComponent.id}><button>e</button></Link><button onClick={() => {this.context.deleteComponent(networkComponent.id)}}>d</button></td></tr>))}
                 </tbody>
                 </table> 
             </div>
