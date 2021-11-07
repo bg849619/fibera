@@ -92,6 +92,7 @@ class App extends Component {
             <HashRouter>
             <div>
                 <input type="file" onChange={this.handleFile} />
+                {this.state.changed?<button onClick={this.state.saveData.bind(this)}>Save Changes</button>:<></>}
                 <Link to="/">Home</Link>
                 <Link to="/network">Network</Link>
                 <Link to="/specs">Specs</Link>

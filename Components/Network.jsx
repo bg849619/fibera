@@ -4,6 +4,8 @@ import {Route, Link, Switch, useParams} from 'react-router-dom';
 import NetworkList from './NetworkList.jsx';
 import NetworkMap from './NetworkMap.jsx';
 
+import ComponentEdit from './Edits/ComponentEdit.jsx';
+
 class Network extends Component {
     constructor(props){
         super(props);
@@ -22,7 +24,7 @@ class Network extends Component {
                     <NetworkList networkComponents={this.props.network} />
                 </Route>
                 <Route path="/edit/:id">
-                    <div></div>
+                    <ComponentEdit />
                 </Route>
                 <Route path="/network">
                     <NetworkMap networkComponents={this.props.network} />
