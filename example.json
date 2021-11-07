@@ -39,7 +39,8 @@
             "placement":"aerial",
             "map": [
                 [{"component": 0,"fiber": [0,0]}, {"component": 0, "fiber": [0, 1]}]
-            ]
+            ],
+            "name": "Junction 2"
         }
     ],
     "cableSpec": [
