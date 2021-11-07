@@ -9,3 +9,12 @@
 .body{ 
     height: 100vh;
 }
+
+.mapPopup {
+    background-color: white;
+    border: 1px solid black;
+    padding: 15;
+    margin: 0;
+    width: 75px;
+    
+}
