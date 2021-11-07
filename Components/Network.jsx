@@ -21,6 +21,9 @@ class Network extends Component {
                 <Route path="/network/list">
                     <NetworkList networkComponents={this.props.network} />
                 </Route>
+                <Route path="/edit/:id">
+                    <div></div>
+                </Route>
                 <Route path="/network">
                     <NetworkMap networkComponents={this.props.network} />
                 </Route>
